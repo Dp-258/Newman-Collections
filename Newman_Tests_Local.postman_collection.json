@@ -7,167 +7,177 @@
 	},
 	"item": [
 		{
-			"name": "Get Users",
-			"event": [
+			"name": "Clients",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"// Test 1: Verificar código de estado\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"// Test 2: Verificar que la respuesta es JSON\r",
-							"pm.test(\"Response is JSON\", function () {\r",
-							"    pm.response.to.be.json;\r",
-							"});\r",
-							"\r",
-							"// Test 3: Verificar estructura de respuesta\r",
-							"pm.test(\"Response has correct structure\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    pm.expect(responseJson).to.have.property('success', true);\r",
-							"    pm.expect(responseJson).to.have.property('data');\r",
-							"    pm.expect(responseJson).to.have.property('total');\r",
-							"});\r",
-							"\r",
-							"// Test 4: Verificar que data es un array\r",
-							"pm.test(\"Data is an array\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    pm.expect(responseJson.data).to.be.an('array');\r",
-							"});\r",
-							"\r",
-							"// Test 5: Verificar que hay usuarios\r",
-							"pm.test(\"Has users\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    pm.expect(responseJson.data.length).to.be.greaterThan(0);\r",
-							"    pm.expect(responseJson.total).to.equal(responseJson.data.length);\r",
-							"});\r",
-							"\r",
-							"// Test 6: Verificar estructura de usuario\r",
-							"pm.test(\"User structure is correct\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    if (responseJson.data.length > 0) {\r",
-							"        const firstUser = responseJson.data[0];\r",
-							"        pm.expect(firstUser).to.have.property('id');\r",
-							"        pm.expect(firstUser).to.have.property('nombre');\r",
-							"        pm.expect(firstUser).to.have.property('email');\r",
-							"        pm.expect(firstUser).to.have.property('edad');\r",
-							"    }\r",
-							"});\r",
-							"\r",
-							"// Test 7: Verificar tiempo de respuesta\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/usuarios",
-					"protocol": "http",
-					"host": [
-						"localhost"
+					"name": "Get Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test 1: Verificar código de estado\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Test 2: Verificar que la respuesta es JSON\r",
+									"pm.test(\"Response is JSON\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"// Test 3: Verificar estructura de respuesta\r",
+									"pm.test(\"Response has correct structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson).to.have.property('success', true);\r",
+									"    pm.expect(responseJson).to.have.property('data');\r",
+									"    pm.expect(responseJson).to.have.property('total');\r",
+									"});\r",
+									"\r",
+									"// Test 4: Verificar que data es un array\r",
+									"pm.test(\"Data is an array\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.data).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"// Test 5: Verificar que hay usuarios\r",
+									"pm.test(\"Has users\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.data.length).to.be.greaterThan(0);\r",
+									"    pm.expect(responseJson.total).to.equal(responseJson.data.length);\r",
+									"});\r",
+									"\r",
+									"// Test 6: Verificar estructura de usuario\r",
+									"pm.test(\"User structure is correct\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    if (responseJson.data.length > 0) {\r",
+									"        const firstUser = responseJson.data[0];\r",
+									"        pm.expect(firstUser).to.have.property('id');\r",
+									"        pm.expect(firstUser).to.have.property('nombre');\r",
+									"        pm.expect(firstUser).to.have.property('email');\r",
+									"        pm.expect(firstUser).to.have.property('edad');\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"// Test 7: Verificar tiempo de respuesta\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"usuarios"
-					]
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Create user",
-			"event": [
+			"name": "Finance",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"// Test 1: Verificar código de estado\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});\r",
-							"\r",
-							"// Test 2: Verificar estructura de respuesta\r",
-							"pm.test(\"Response has correct structure\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    pm.expect(responseJson).to.have.property('success', true);\r",
-							"    pm.expect(responseJson).to.have.property('data');\r",
-							"    pm.expect(responseJson).to.have.property('message');\r",
-							"});\r",
-							"\r",
-							"// Test 3: Verificar que el usuario fue creado correctamente\r",
-							"pm.test(\"User created correctly\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    const userData = responseJson.data;\r",
-							"    pm.expect(userData).to.have.property('id');\r",
-							"    pm.expect(userData.id).to.be.a('number');\r",
-							"    pm.expect(userData.nombre).to.be.a('string');\r",
-							"    pm.expect(userData.email).to.be.a('string');\r",
-							"    pm.expect(userData.edad).to.be.a('number');\r",
-							"});\r",
-							"\r",
-							"// Test 4: Verificar mensaje de éxito\r",
-							"pm.test(\"Success message is correct\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    pm.expect(responseJson.message).to.include('exitosamente');\r",
-							"});\r",
-							"\r",
-							"// Test 5: Guardar ID del usuario creado para otros tests\r",
-							"pm.test(\"Save user ID for future tests\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    pm.globals.set(\"newUserId\", responseJson.data.id);\r",
-							"    pm.globals.set(\"newUserEmail\", responseJson.data.email);\r",
-							"});\r",
-							"\r",
-							"// Test 6: Verificar que los datos enviados coinciden\r",
-							"pm.test(\"Request data matches response data\", function () {\r",
-							"    const responseJson = pm.response.json();\r",
-							"    const requestData = JSON.parse(pm.request.body.raw);\r",
-							"    pm.expect(responseJson.data.nombre).to.equal(requestData.nombre);\r",
-							"    pm.expect(responseJson.data.email).to.equal(requestData.email);\r",
-							"    pm.expect(responseJson.data.edad).to.equal(requestData.edad);\r",
-							"});"
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"nombre\": \"Ana Rodríguez\",\r\n  \"email\": \"ana@email.com\",\r\n  \"edad\": 28\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "Create user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test 1: Verificar código de estado\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Test 2: Verificar estructura de respuesta\r",
+									"pm.test(\"Response has correct structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson).to.have.property('success', true);\r",
+									"    pm.expect(responseJson).to.have.property('data');\r",
+									"    pm.expect(responseJson).to.have.property('message');\r",
+									"});\r",
+									"\r",
+									"// Test 3: Verificar que el usuario fue creado correctamente\r",
+									"pm.test(\"User created correctly\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    const userData = responseJson.data;\r",
+									"    pm.expect(userData).to.have.property('id');\r",
+									"    pm.expect(userData.id).to.be.a('number');\r",
+									"    pm.expect(userData.nombre).to.be.a('string');\r",
+									"    pm.expect(userData.email).to.be.a('string');\r",
+									"    pm.expect(userData.edad).to.be.a('number');\r",
+									"});\r",
+									"\r",
+									"// Test 4: Verificar mensaje de éxito\r",
+									"pm.test(\"Success message is correct\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson.message).to.include('exitosamente');\r",
+									"});\r",
+									"\r",
+									"// Test 5: Guardar ID del usuario creado para otros tests\r",
+									"pm.test(\"Save user ID for future tests\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.globals.set(\"newUserId\", responseJson.data.id);\r",
+									"    pm.globals.set(\"newUserEmail\", responseJson.data.email);\r",
+									"});\r",
+									"\r",
+									"// Test 6: Verificar que los datos enviados coinciden\r",
+									"pm.test(\"Request data matches response data\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    const requestData = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(responseJson.data.nombre).to.equal(requestData.nombre);\r",
+									"    pm.expect(responseJson.data.email).to.equal(requestData.email);\r",
+									"    pm.expect(responseJson.data.edad).to.equal(requestData.edad);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/usuarios",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"usuarios"
-					]
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Ana Rodríguez\",\r\n  \"email\": \"ana@email.com\",\r\n  \"edad\": 28\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
